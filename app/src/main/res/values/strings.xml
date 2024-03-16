@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">converter</string>
+    <string name="unit_converter">Unit Converter</string>
+    <string name="length">Length</string>
+    <string name="temp">Temperature</string>
+    <string name="weight">Weight</string>
+    <string name="currency">Currency</string>
+    <string name="length_convert_icon">Length convert icon</string>
+    <string name="temp_convert_icon">Temperature convert icon</string>
+    <string name="weight_convert_icon">Weight convert icon</string>
+    <string name="currency_convert_icon">Currency convert icon</string>
+    <string name="weight_in">input</string>
+    <string name="convert">Convert</string>
+    <string name="input_weight">Input weight</string>
+    <string-array name="weight_types">
+        <item>Kilograms</item>
+        <item>Pounds</item>
+        <item>Ounces</item>
+        <item>Grams</item>
+    </string-array>
+    <string-array name="currency_types">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>INR</item>
+    </string-array>
+    <string-array name="length_types">
+        <item>Kilometers</item>
+        <item>Miles</item>
+        <item>Meters</item>
+        <item>Yards</item>
+    </string-array>
+    <string-array name="temp_types">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+</resources>
