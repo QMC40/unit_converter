@@ -1,6 +1,7 @@
 package com.bignerdranch.android.converter
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
@@ -43,6 +44,11 @@ class MyWeights : AppCompatActivity() {
 
         val inputWeightValueEditText: EditText = findViewById(R.id.weightInput)
 
+        val homeButton: Button = findViewById(R.id.home_button)
+        homeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         convertButton.setOnClickListener {
             val selectedType = inputWeightTypeSpinner.selectedItem.toString()

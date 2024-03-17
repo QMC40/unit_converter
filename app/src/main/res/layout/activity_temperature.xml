@@ -7,44 +7,44 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MyWeights">
+    tools:context=".MyTemperatures">
 
     <Button
-    android:id="@+id/home_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:text="@string/home" />
-
-    <EditText
-        android:id="@+id/weightInput"
+        android:id="@+id/home_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/input_weight"
-        android:inputType="numberDecimal"
-        android:labelFor="@id/weight_converter"
-        android:minHeight="48dp" />
+        android:layout_marginTop="10dp"
+        android:text="@string/home" />
+
+   <EditText
+    android:id="@+id/temperatureInput"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="25dp"
+    android:autofillHints=""
+    android:ems="10"
+    android:hint="@string/input_temperature"
+    android:inputType="numberSigned|numberDecimal"
+    android:labelFor="@id/temperature_converter"
+    android:minHeight="48dp" />
 
     <Spinner
-        android:id="@+id/input_weight_type"
+        android:id="@+id/input_temperature_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/weight_converter"
+        android:id="@+id/temperature_converter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/convert" />
 
     <LinearLayout
-        android:id="@+id/weight_container"
+        android:id="@+id/temperature_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

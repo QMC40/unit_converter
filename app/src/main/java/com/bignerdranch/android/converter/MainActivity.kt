@@ -1,20 +1,14 @@
 package com.bignerdranch.android.converter
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var weight: CardView;
-    private lateinit var length: CardView;
-    private lateinit var temp: CardView;
-    private lateinit var currency: CardView;
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +19,20 @@ class MainActivity : AppCompatActivity() {
         val lengthCardView: CardView = findViewById(R.id.length)
         val tempCardView: CardView = findViewById(R.id.temperature)
         val currencyCardView: CardView = findViewById(R.id.currency)
+        val settingsCardView: CardView = findViewById(R.id.settings)
 
+        // Load saved preferences
+        val sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val lengthVisibleSaved = sharedPref.getBoolean("lengthVisible", true)
+        val weightVisibleSaved = sharedPref.getBoolean("weightVisible", true)
+        val tempVisibleSaved = sharedPref.getBoolean("tempVisible", true)
+        val currencyVisibleSaved = sharedPref.getBoolean("currencyVisible", true)
+
+        // Set the visibility of the CardViews based on the saved preferences
+        lengthCardView.visibility = if (lengthVisibleSaved) View.VISIBLE else View.GONE
+        weightCardView.visibility = if (weightVisibleSaved) View.VISIBLE else View.GONE
+        tempCardView.visibility = if (tempVisibleSaved) View.VISIBLE else View.GONE
+        currencyCardView.visibility = if (currencyVisibleSaved) View.VISIBLE else View.GONE
 
         weightCardView.setOnClickListener {
             val intent = Intent(this, MyWeights::class.java)
@@ -47,11 +54,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        settingsCardView.setOnClickListener {
+            val intent = Intent(this, MySettings::class.java)
+            startActivity(intent)
         }
+
     }
 }

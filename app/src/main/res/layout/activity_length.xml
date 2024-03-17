@@ -7,44 +7,44 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MyWeights">
+    tools:context=".MyLengths">
 
     <Button
-    android:id="@+id/home_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:text="@string/home" />
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/home" />
 
     <EditText
-        android:id="@+id/weightInput"
+        android:id="@+id/lengthInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/input_weight"
+        android:hint="@string/input_length"
         android:inputType="numberDecimal"
-        android:labelFor="@id/weight_converter"
+        android:labelFor="@id/length_converter"
         android:minHeight="48dp" />
 
     <Spinner
-        android:id="@+id/input_weight_type"
+        android:id="@+id/input_length_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/weight_converter"
+        android:id="@+id/length_converter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/convert" />
 
     <LinearLayout
-        android:id="@+id/weight_container"
+        android:id="@+id/length_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
