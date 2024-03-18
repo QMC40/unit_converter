@@ -1,215 +1,255 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!-- The root layout is a LinearLayoutCompat which arranges its children in a single column -->
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- This TextView displays the title of the application -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/unit_converter"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:textColor="@color/black" />
+        android:gravity="center"
+        android:text="@string/unit_converter"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
-    <LinearLayout
+    <!-- This GridLayout arranges its children in a grid of 2 columns and 3 rows -->
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:alignmentMode="alignBounds"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:useDefaultMargins="true">
 
+        <!-- Each CardView represents a unit converter. It contains an ImageView for the icon and a TextView for the label -->
+
+        <!-- This CardView is for length conversion -->
         <androidx.cardview.widget.CardView
             android:id="@+id/length"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             app:cardBackgroundColor="@color/card"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="30dp"
-            app:cardCornerRadius="20dp"
-            >
-        
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@drawable/length"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="30dp"
-            android:contentDescription="@string/length_convert_icon">
+            app:cardCornerRadius="20dp">
 
-        </ImageView>
+            <!-- This ImageView displays the icon for length conversion -->
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/length_convert_icon"
+                android:src="@drawable/length">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/length"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            >
+            </ImageView>
+
+            <!-- This TextView displays the label for length conversion -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="@string/length"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
 
             </TextView>
 
         </androidx.cardview.widget.CardView>
 
+        <!-- This CardView is for temperature conversion -->
         <androidx.cardview.widget.CardView
             android:id="@+id/temperature"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:cardBackgroundColor="@color/card"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="50dp"
-            app:cardCornerRadius="20dp"
-            >
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="20dp">
 
+            <!-- This ImageView displays the icon for temperature conversion -->
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/thermometer"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
-                android:contentDescription="@string/temp_convert_icon">
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/temp_convert_icon"
+                android:src="@drawable/thermometer">
 
             </ImageView>
 
+            <!-- This TextView displays the label for temperature conversion -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
                 android:text="@string/temp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                >
+                android:textStyle="bold">
 
             </TextView>
 
         </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="35dp">
-
+        <!-- This CardView is for weight conversion -->
         <androidx.cardview.widget.CardView
             android:id="@+id/weight"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:cardBackgroundColor="@color/card"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
-            app:cardCornerRadius="20dp"
-            >
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="20dp">
 
+            <!-- This ImageView displays the icon for weight conversion -->
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/weight"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
-                android:contentDescription="@string/weight_convert_icon">
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/weight_convert_icon"
+                android:src="@drawable/weight">
 
             </ImageView>
 
+            <!-- This TextView displays the label for weight conversion -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
                 android:text="@string/weight"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                >
+                android:textStyle="bold">
 
             </TextView>
 
         </androidx.cardview.widget.CardView>
 
+        <!-- This CardView is for currency conversion -->
         <androidx.cardview.widget.CardView
             android:id="@+id/currency"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:cardBackgroundColor="@color/card"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="50dp"
-            app:cardCornerRadius="20dp"
-            >
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="20dp">
 
+            <!-- This ImageView displays the icon for currency conversion -->
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/currencies"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
-                android:contentDescription="@string/currency_convert_icon">
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/currency_convert_icon"
+                android:src="@drawable/currencies">
 
             </ImageView>
 
+            <!-- This TextView displays the label for currency conversion -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
                 android:text="@string/currency"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                >
+                android:textStyle="bold">
 
             </TextView>
 
         </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+        <!-- This CardView is for settings -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/settings"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="20dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/settings"
-        android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:cardBackgroundColor="@color/card"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="20dp">
+            <!-- This ImageView displays the icon for settings -->
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/settings_icon"
+                android:src="@drawable/settings">
 
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/settings"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
-        android:contentDescription="@string/settings_icon">
+            </ImageView>
 
-    </ImageView>
+            <!-- This TextView displays the label for settings -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="@string/settings"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        >
+            </TextView>
 
-    </TextView>
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        <!-- This CardView is for exiting the application -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/exit"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="20dp">
 
+            <!-- This ImageView displays the icon for exiting the application -->
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/exit_icon"
+                android:src="@drawable/exit">
+
+            </ImageView>
+
+            <!-- This TextView displays the label for exiting the application -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="@string/exit"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

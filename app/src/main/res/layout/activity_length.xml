@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/material_dynamic_primary80"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MyLengths">
 
     <Button
         android:id="@+id/home_button"
+        style="@style/CustomButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="20sp"
         android:text="@string/home" />
 
     <EditText
@@ -27,6 +29,7 @@
         android:hint="@string/input_length"
         android:inputType="numberDecimal"
         android:labelFor="@id/length_converter"
+        android:textSize="20sp"
         android:minHeight="48dp" />
 
     <Spinner
@@ -34,13 +37,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="20sp"
         android:minHeight="48dp" />
 
     <Button
         android:id="@+id/length_converter"
+        style="@style/CustomButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="20sp"
         android:text="@string/convert" />
 
     <LinearLayout

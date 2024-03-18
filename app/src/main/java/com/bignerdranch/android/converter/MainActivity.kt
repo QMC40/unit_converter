@@ -15,11 +15,13 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        // Get the CardViews for the different categories
         val weightCardView: CardView = findViewById(R.id.weight)
         val lengthCardView: CardView = findViewById(R.id.length)
         val tempCardView: CardView = findViewById(R.id.temperature)
         val currencyCardView: CardView = findViewById(R.id.currency)
         val settingsCardView: CardView = findViewById(R.id.settings)
+        val exitCardView: CardView = findViewById(R.id.exit)
 
         // Load saved preferences
         val sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         tempCardView.visibility = if (tempVisibleSaved) View.VISIBLE else View.GONE
         currencyCardView.visibility = if (currencyVisibleSaved) View.VISIBLE else View.GONE
 
+        // Set the onClickListeners for the CardViews
+        // start the corresponding activity when a CardView is clicked
         weightCardView.setOnClickListener {
             val intent = Intent(this, MyWeights::class.java)
             startActivity(intent)
@@ -59,5 +63,34 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        exitCardView.setOnClickListener {
+            finish()
+        }
+
+    }
+
+    // Reload the main activity when the settings activity is finished to update the visibility of the CardViews
+    // based on the saved preferences
+    override fun onResume() {
+        super.onResume()
+
+        // Load saved preferences
+        val sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val lengthVisibleSaved = sharedPref.getBoolean("lengthVisible", true)
+        val weightVisibleSaved = sharedPref.getBoolean("weightVisible", true)
+        val tempVisibleSaved = sharedPref.getBoolean("tempVisible", true)
+        val currencyVisibleSaved = sharedPref.getBoolean("currencyVisible", true)
+
+        // Get the CardViews for the different categories
+        val weightCardView: CardView = findViewById(R.id.weight)
+        val lengthCardView: CardView = findViewById(R.id.length)
+        val tempCardView: CardView = findViewById(R.id.temperature)
+        val currencyCardView: CardView = findViewById(R.id.currency)
+
+        // Set the visibility of the CardViews based on the saved preferences
+        lengthCardView.visibility = if (lengthVisibleSaved) View.VISIBLE else View.GONE
+        weightCardView.visibility = if (weightVisibleSaved) View.VISIBLE else View.GONE
+        tempCardView.visibility = if (tempVisibleSaved) View.VISIBLE else View.GONE
+        currencyCardView.visibility = if (currencyVisibleSaved) View.VISIBLE else View.GONE
     }
 }
