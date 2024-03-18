@@ -4,29 +4,25 @@
     <string name="length">Length</string>
     <string name="length_convert_icon">Length convert icon</string>
     <string name="input_length">Input length\n</string>
-    <string name="length_format">%1$s: %2$.2f</string>
+    <string name="length_format">%1$.2f %2$s = %3$.2f %4$s</string>
     <string name="temp">Temperature</string>
     <string name="temp_convert_icon">Temperature convert icon</string>
     <string name="input_temperature">Input temperature</string>
-    <string name="temperature_format">%1$s: %2$.2f</string>
+    <string name="temperature_format">%1$.2f degrees %2$s = %3$.2f degrees %4$s</string>
     <string name="weight">Weight</string>
     <string name="weight_convert_icon">Weight convert icon</string>
-    <string name="weight_in">input</string>
     <string name="input_weight">Input weight</string>
-    <string name="weight_format">%1$s: %2$.2f</string>
+    <string name="weight_format">%1$.2f %2$s = %3$.2f %4$s</string>
     <string name="currency">Currency</string>
     <string name="currency_convert_icon">Currency convert icon</string>
     <string name="input_currency">Input amount</string>
-    <string name="currency_format">%1$s: %2$.2f</string>
+    <string name="currency_format">%1$.2f %2$s = %3$.2f %4$s</string>
     <string name="settings">Settings</string>
     <string name="settings_icon">Settings icon</string>
     <string name="exit">Exit</string>
     <string name="exit_icon">exit_icon</string>
     <string name="convert">Convert</string>
     <string name="home">Home screen</string>
-    <string name="action_settings">Settings</string>
-    <string name="visible">Visible</string>
-    <string name="disabled">Disabled</string>
     <string name="choose_available_converters_on_home_screen">Choose available converters on home screen</string>
     <string-array name="weight_types">
         <item>Kilograms</item>

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.bignerdranch.android.converter"
+    namespace = "com.mobilesoftwaredev.android.converter"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.bignerdranch.android.converter"
+        applicationId = "com.mobilesoftwaredev.android.converter"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

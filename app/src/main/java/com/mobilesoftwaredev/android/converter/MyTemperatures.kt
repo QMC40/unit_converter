@@ -1,4 +1,4 @@
-package com.bignerdranch.android.converter
+package com.mobilesoftwaredev.android.converter
 
 import android.content.Context
 import android.os.Bundle
@@ -27,6 +27,10 @@ data class TemperatureValue(
 
 // Activity to convert temperature values
 class MyTemperatures : AppCompatActivity() {
+
+    // variables for the input value
+    private lateinit var selectedType: String
+    private var inputValue = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,8 +73,8 @@ class MyTemperatures : AppCompatActivity() {
         // Set the click listener for the convert button
         convertButton.setOnClickListener {
             // Get the selected temperature type from the spinner and the input value from the layout when the 'convert' button is clicked
-            val selectedType = inputTemperatureTypeSpinner.selectedItem.toString()
-            val inputValue = temperatureInputEditText.text.toString().toDouble()
+            selectedType = inputTemperatureTypeSpinner.selectedItem.toString()
+            inputValue = temperatureInputEditText.text.toString().toDouble()
 
             // Convert the input value to Celsius if the selected type is not "Celsius"
             val celsiusValue = if (selectedType != "Celsius") convertToCelsius(
@@ -125,12 +129,8 @@ class MyTemperatures : AppCompatActivity() {
         val temperatures = listOf(temperature.celsius, temperature.fahrenheit, temperature.kelvin)
         for (temperatureValue in temperatures) {
             val textView = TextView(this)
-            textView.text = getString(
-                R.string.temperature_format,
-                temperatureValue.type,
-                temperatureValue.value
-            )
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f) // Set text size to 20sp
+            textView.text = getString(R.string.temperature_format, inputValue, selectedType, temperatureValue.value, temperatureValue.type)
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f) // Set text size to 20sp
             container.addView(textView)
         }
     }

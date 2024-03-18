@@ -1,4 +1,4 @@
-package com.bignerdranch.android.converter
+package com.mobilesoftwaredev.android.converter
 
 import android.content.Context
 import android.os.Bundle
@@ -28,6 +28,10 @@ data class WeightValue(
 
 // Activity to convert weight values
 class MyWeights : AppCompatActivity() {
+
+    // variables for the input value
+    private lateinit var selectedType: String
+    private var inputValue = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,8 +74,8 @@ class MyWeights : AppCompatActivity() {
         // Set the click listener for the convert button
         convertButton.setOnClickListener {
             // Get the selected weight type from the spinner and the input value from the layout when the 'convert' button is clicked
-            val selectedType = inputWeightTypeSpinner.selectedItem.toString()
-            val inputValue = weightInputEditText.text.toString().toDouble()
+            selectedType = inputWeightTypeSpinner.selectedItem.toString()
+            inputValue = weightInputEditText.text.toString().toDouble()
 
             // Convert the input value to kilograms if the selected type is not "Kilograms"
             val kilogramsValue = if (selectedType != "Kilograms") convertToKilograms(
@@ -130,7 +134,7 @@ class MyWeights : AppCompatActivity() {
         val weights = listOf(weight.kilograms, weight.pounds, weight.ounces, weight.grams)
         for (weightValue in weights) {
             val textView = TextView(this)
-            textView.text = getString(R.string.weight_format, weightValue.type, weightValue.value)
+            textView.text = getString(R.string.weight_format, inputValue, selectedType, weightValue.value, weightValue.type)
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
             container.addView(textView)
         }

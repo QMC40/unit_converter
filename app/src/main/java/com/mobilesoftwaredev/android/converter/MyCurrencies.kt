@@ -1,4 +1,4 @@
-package com.bignerdranch.android.converter
+package com.mobilesoftwaredev.android.converter
 
 import android.content.Context
 import android.os.Bundle
@@ -26,6 +26,10 @@ data class CurrencyValue(
 
 // Activity to convert currency values
 class MyCurrencies : AppCompatActivity() {
+
+    // variables for the input value
+    private lateinit var selectedType: String
+    private var inputValue = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,14 +73,14 @@ class MyCurrencies : AppCompatActivity() {
         // Set the click listener for the convert button
         convertButton.setOnClickListener {
             // Get the selected input type and the input value from the layout when the 'convert' button is clicked
-            val selectedInputType = inputCurrencyTypeSpinner.selectedItem.toString()
-            val inputValue = currencyInputEditText.text.toString().toDouble()
+            selectedType = inputCurrencyTypeSpinner.selectedItem.toString()
+            inputValue = currencyInputEditText.text.toString().toDouble()
 
             // Use the coroutine scope to launch a new coroutine on the main dispatcher
             CoroutineScope(Dispatchers.Main).launch {
                 // Convert the input value to the base currency (USD) if it is not already in USD
-                val baseCurrencyValue = if (selectedInputType != "USD") convertToBaseCurrency(
-                    inputValue, selectedInputType
+                val baseCurrencyValue = if (selectedType != "USD") convertToBaseCurrency(
+                    inputValue, selectedType
                     // If the input value is already in USD, use it as the base currency value
                 ) else inputValue
 
@@ -94,7 +98,7 @@ class MyCurrencies : AppCompatActivity() {
                 // Update the currency container with the new currency values
                 updateCurrencies(
                     currencyContainer,
-                    CurrencyValue(selectedInputType, inputValue),
+                    CurrencyValue(selectedType, inputValue),
                     targetCurrencies
                 )
             }
@@ -150,7 +154,7 @@ class MyCurrencies : AppCompatActivity() {
         // Create a text view for the base currency and add it to the container
         val textView = TextView(this)
         // Set the text for the base currency
-        textView.text = getString(R.string.currency_format, baseCurrency.type, baseCurrency.value)
+        textView.text = getString(R.string.currency_format,  inputValue, selectedType, baseCurrency.value, baseCurrency.type)
         // Set the text size to 20sp
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
         // Add the text view to the container
@@ -161,7 +165,7 @@ class MyCurrencies : AppCompatActivity() {
             if (currencyValue.type != baseCurrency.type) {
                 val currencyTextView = TextView(this)
                 currencyTextView.text =
-                    getString(R.string.currency_format, currencyValue.type, currencyValue.value)
+                    getString(R.string.currency_format, inputValue, selectedType, currencyValue.value, currencyValue.type)
                 currencyTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
                 container.addView(currencyTextView)
             }

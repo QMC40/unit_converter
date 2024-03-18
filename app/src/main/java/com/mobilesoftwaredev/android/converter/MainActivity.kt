@@ -1,4 +1,13 @@
-package com.bignerdranch.android.converter
+/*
+ * File: MainActivity.kt
+ * Author: Aaron Fortner
+ * Version: 1.0
+ * Class Information: COSC 6362 Mobile Software Development - Spring 2024
+ * Professor: Dr. Yadav
+ * Assignment 2
+ */
+
+package com.mobilesoftwaredev.android.converter
 
 import android.content.Context
 import android.content.Intent
